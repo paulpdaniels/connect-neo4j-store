@@ -8,7 +8,7 @@ const Neo4jStore = require('../')(session);
 test('create get session query', () => {
 
   const client = {
-    cypher: jest.fn((query, cb) => cb(null, {'u.session': '123'}))
+    cypher: jest.fn((query, cb) => cb(null, [{'u.session': '123'}]))
   };
 
   const store = new Neo4jStore({client});
@@ -28,7 +28,7 @@ test('create get session query', () => {
 test('create set session query', () => {
 
   const client = {
-    cypher: jest.fn((query, cb) => cb(null, {}))
+    cypher: jest.fn((query, cb) => cb(null, [{}]))
   };
 
   const store = new Neo4jStore({client});
@@ -45,7 +45,7 @@ test('create set session query', () => {
 
 test('create destroy session query', () => {
   const client = {
-    cypher: jest.fn((query, cb) => cb(null, {}))
+    cypher: jest.fn((query, cb) => cb(null, [{}]))
   };
 
   const store = new Neo4jStore({client});
@@ -63,7 +63,7 @@ test('create destroy session query', () => {
 
 test('create touch session query', () => {
   const client = {
-    cypher: jest.fn((query, cb) => cb(null, {}))
+    cypher: jest.fn((query, cb) => cb(null, [{}]))
   };
 
   const store = new Neo4jStore({client});
