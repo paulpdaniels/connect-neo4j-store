@@ -17,12 +17,12 @@
   "author": "paulpdaniels",
   "license": "MIT",
   "peerDependencies": {
-    "bluebird": "^3.5.0",
-    "neo4j": "^2.0.0-RC2"
+    "bluebird": "^3.5.0"
   },
   "devDependencies": {
     "express-session": "^1.15.3",
-    "jest": "^20.0.4"
+    "jest": "^20.0.4",
+    "bluebird": "^3.5.0"
   },
   "dependencies": {
     "neo4j": "^2.0.0-RC2"
