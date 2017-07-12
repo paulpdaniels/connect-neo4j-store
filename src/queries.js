@@ -15,7 +15,7 @@ const destroy = (sid) => ({
 const get = (sid) => ({
   query: [
     'MATCH (s:Session {id: {sid}})',
-    'RETURN s',
+    'RETURN s.session',
     'LIMIT 1'
   ].join('\n'),
   params: {

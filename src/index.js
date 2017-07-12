@@ -54,7 +54,7 @@ module.exports = function (session) {
 
       return Promise.resolve(queries.get(sid))
         .then(query => this.client.cypherAsync(query))
-        .then(data => data[0] && this.serializer.parse(data[0]['u.session']))
+        .then(data => data[0] && this.serializer.parse(data[0]['s.session']))
         .asCallback(fn);
 
     }

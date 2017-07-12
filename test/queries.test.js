@@ -8,20 +8,21 @@ const Neo4jStore = require('../')(session);
 test('create get session query', () => {
 
   const client = {
-    cypher: jest.fn((query, cb) => cb(null, [{'u.session': '123'}]))
+    cypher: jest.fn((query, cb) => cb(null, [{'s.session': '123'}]))
   };
 
   const store = new Neo4jStore({client});
 
   return store.get('abc', () => {})
-    .then(() => {
+    .then((session) => {
+
+      expect(session).toEqual(123);
 
       expect(client.cypher.mock.calls[0][0])
         .toEqual({
           params: {sid: 'abc'},
-          query: 'MATCH (s:Session {id: {sid}})\nRETURN s\nLIMIT 1'
+          query: 'MATCH (s:Session {id: {sid}})\nRETURN s.session\nLIMIT 1'
         });
-
     });
 });
 
