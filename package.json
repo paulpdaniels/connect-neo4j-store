@@ -4,7 +4,11 @@
   "description": "A session store for connect session storage in neo4j",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest && codecov"
+  },
+  "jest": {
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
   },
   "keywords": [
     "connect",
@@ -22,7 +26,8 @@
   "devDependencies": {
     "express-session": "^1.15.3",
     "jest": "^20.0.4",
-    "bluebird": "^3.5.0"
+    "bluebird": "^3.5.0",
+    "codecov": "^1.0.0"
   },
   "dependencies": {
     "neo4j": "^2.0.0-RC2"
